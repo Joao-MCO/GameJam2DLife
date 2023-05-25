@@ -443,6 +443,7 @@ GameObject:
   - component: {fileID: 267019140}
   - component: {fileID: 267019139}
   - component: {fileID: 267019141}
+  - component: {fileID: 267019144}
   - component: {fileID: 267019142}
   - component: {fileID: 267019143}
   m_Layer: 0
@@ -492,7 +493,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: -143637403, guid: 22eb61dd205153f46a8fa4d90082a661, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -569,6 +570,20 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 3
+--- !u!114 &267019144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 267019138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55c2f4a5c9059b64c9db0354257291d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  visualCue: {fileID: 0}
+  inkJSON: {fileID: 4900000, guid: ecd2173cb7844924baef63bcba1cbd24, type: 3}
 --- !u!1 &276538861
 GameObject:
   m_ObjectHideFlags: 0

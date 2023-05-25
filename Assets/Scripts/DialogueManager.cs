@@ -11,15 +11,13 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] public Text dialogueText;
     private static DialogueManager instance;
     private Story currentStory;
-    private bool dialogueIsPlaying;
+    public bool dialogueIsPlaying{ get; private set;}
     public int missaoAtiva;
     public Text missao;
     public Text nome;
     
-        // Nome de cada personagem
-    private string[] nomes = new string[]{"EDUARDO", "ANA", "RICK", "BLOB", "JOAO DA SILVA", "WILL", "JOHN", "PROFETA", "BELLY", "FRED", "OFICIAL"};
     // Missoes
-    private string[] missoes = new string[]{"Interdimensional Troubles", "1- Ir falar com o Rick", "1.1- Falar com o Blob", 
+    private string[] missoes = new string[]{"Aperte Espaco", "1- Ir falar com o Rick", "1.1- Falar com o Blob", 
         "1.2- Entregar o C.O.C.O para o Joao Silva", "2- Falar com o Will", "3- De a carta ao Jhon", "4- Fale com o ~Profeta~", "4.1 Entregue o ~Iogurte~ para a Belly",
         "5- fale com a Junny", "6- Fale de novo com o Blob" ,"6.1- Fale com o Fred", "6.2- Va ate a delegacia", "6.3- Fale mais uma vez com o Blob", "7- Fale com o Fred",
         "7.1- Ache os 5 gatinhos", "7.2- fale com o Fred", "8- Compre a janta", "8.1- Leve a janta ate sua casa", "Fim do Dia"};
@@ -31,7 +29,7 @@ public class DialogueManager : MonoBehaviour
 
     void Start()
     {
-        dialogueIsPlaying = true;
+        dialogueIsPlaying = false;
         missaoAtiva = 0;
     }
 
@@ -39,6 +37,9 @@ public class DialogueManager : MonoBehaviour
     void Update()
     {
         missao.text = missoes[missaoAtiva];
+        if(Input.GetKeyDown(KeyCode.Space) && dialogueIsPlaying){
+            ContinueStory();
+        }
     }
 
     public static DialogueManager GetInstance(){
