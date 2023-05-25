@@ -44,4 +44,28 @@ public class DialogueManager : MonoBehaviour
     public static DialogueManager GetInstance(){
         return instance;
     }
+
+    public void EnterDialogueMode(TextAsset inkJSON){
+        currentStory = new Story(inkJSON.text);
+        dialogueIsPlaying = true;
+        dialoguePanel.SetActive(true);
+
+        ContinueStory();
+    }
+
+    private void ContinueStory(){
+        if(currentStory.canContinue){
+            dialogueText.text = currentStory.Continue();
+        }else{
+            if(Input.GetKeyDown(KeyCode.Space)){
+                ExitDialogueMode();
+            }
+        }
+    }
+
+    private void ExitDialogueMode(){
+        dialogueIsPlaying = false;
+        dialoguePanel.SetActive(false);
+        dialogueText.text = "";
+    }
 }

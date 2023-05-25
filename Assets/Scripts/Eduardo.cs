@@ -6,10 +6,12 @@ public class Eduardo : MonoBehaviour
 {
     private Animator animator;
     public int speed;
+    private SpriteRenderer sr;
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
+        sr = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -23,12 +25,12 @@ public class Eduardo : MonoBehaviour
         if (Input.GetKey(KeyCode.A)){
             dir.x = -1;
             animator.SetInteger("Direction", 2);
-            transform.eulerAngles = new Vector3(0f, 180f, 0f);
+            sr.flipX = true;
         }
         else if (Input.GetKey(KeyCode.D)){
             dir.x = 1;
             animator.SetInteger("Direction", 2);
-            transform.eulerAngles = new Vector3(0f, 0f, 0f);
+            sr.flipX = false;
         }
 
         if (Input.GetKey(KeyCode.W)){
